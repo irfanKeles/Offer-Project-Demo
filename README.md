@@ -3,7 +3,6 @@
 - Öğrenci ve Web Developer olarak başlayacak kişiler için temal Asp.Net MVC Platformunda yazdığım ve 
 - C#, MSSQL, CRUD, Session ve Fluent Validation, Cascading DropdownList gibi framework, teknoloji / dil kullandığım bir ufak çaplı projedir.
 - Veri tabanaı alt yapısı Code First ile oluşturulmuştur.
-- Proje yapımı 5 gün sürmüştür. 2020 tarihinde yapılmıştır.  
 ---------------------------------------------------------------
 ### Kullanıcı Bilgileri:
 - 	Mail: i@gmail.com
