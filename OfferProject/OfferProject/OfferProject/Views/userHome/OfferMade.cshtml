@@ -1,0 +1,105 @@
+﻿@using OfferProject.Models.Conctrate
+@model List<Offer>
+@{
+    ViewBag.Title = "OfferMade";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="sidenav">
+            <li title="General Operations" class="sidelist parent active">
+                <a href="#">General Operations</a>
+                <ul>
+                    <li class="sidelist">
+                        <span><i class="fa-solid fa-table-list" style="margin:0 1rem 0 0"></i></span>
+                        <a href="/userHome/OfferMade" style="display:inline-flex">Offers Made</a>
+                    </li>
+                    <li class="sidelist">
+                        <span><i class="fa-solid fa-gear" style="margin:0 1rem 0 0"></i></span>
+                        <a href="/userHome/ProfileSettings" style="display:inline-flex">Profile Setting</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- body -->
+    <div class="col-md-8">
+        <h3 class="mb-4 font-weight-medium" style="margin-left:1rem;">Offer Made List</h3> <!-- main content -->
+        <div class="container">
+            <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th scope="col">Country</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        if (item != null)
+                        {
+                            <tr>
+                                <td>@item.Countries.Name</td>
+                                <td>@item.City.Name</td>
+                                <td>@item.offerDate.ToString("dd-MM-yyyy")</td>
+                                <td>
+                                    @if (@item.status == true)
+                                    {
+                                        <span class="text-success">
+                                            Success
+
+                                            <i class="fa-solid fa-truck-fast"></i>
+
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-warning">
+                                            <b>On Hold</b>
+                                            <i class="fa-solid fa-truck"></i>
+                                        </span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.status == true)
+                                    {
+
+                                        <span class="text-dark" style="margin-right:3px;" title="QUERY"><label id="qurey" style="cursor:pointer;"><i class="fa-solid fa-circle-question"></i></label></span>
+                                        <span class="text-danger" style="visibility:hidden;" title="DELETE"> <a href="@item.Offer_ID" class=""> <i class="fa-regular fa-trash-can p-1"></i></a></span>
+                                        <span class="text-info" title="INFO"> <label  onclick="onPoup(@item.Offer_ID)" style="cursor:pointer;"> <i class="fa-solid fa-eye p-1"></i></label></span>
+
+                                    }
+                                    else
+                                    {
+                                        <span class="text-success" title="EDİT"> <a href="/userHome/OfferEdit/@item.Offer_ID" class=""> <i class="fa-solid fa-file-pen"></i></a></span>
+                                        <span class="text-danger" title="DELETE"> <a href="/userHome/OfferDelete/@item.Offer_ID" class=""> <i class="fa-regular fa-trash-can p-1"></i></a></span>
+                                        <span class="text-info" title="INFO"> <label  onclick="onPoup(@item.Offer_ID)" style="cursor:pointer;"> <i class="fa-solid fa-eye p-1"></i></label></span>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                        @Html.Action("OfferDetail", "userHome", new { id = item.Offer_ID })
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/FullTemplate/UserTemplate/includeScript/MyMain.js"></script>
+<script>
+    //OfferMade /Detail Page
+    document.querySelector('#qurey').addEventListener('click', function () {
+        swal({
+            title: "Query Information !",
+            text: "No changes can be made to the approved offers..",
+            icon: "warning",
+            button: "Okey !",
+        });
+    });
+</script>

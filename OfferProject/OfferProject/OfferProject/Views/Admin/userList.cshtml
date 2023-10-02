@@ -1,0 +1,58 @@
+﻿@using OfferProject.Models.Conctrate
+@model List<Users>
+
+<div class="card direct-chat direct-chat-primary">
+    <div class="card-header">
+        <h3 class="card-title"> <i class="fa-solid fa-address-book mr-2"></i> User List</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+           
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row p-3">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="vertical-align:middle; font-size:20px; text-align:center">Photo</th>
+                            <th scope="col" style="vertical-align:middle; font-size:20px; text-align:center">Name / Surname</th>
+                            <th scope="col" style="vertical-align:middle; font-size:20px; text-align:center">Mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="text-align:center; vertical-align:middle; font-size:20px">
+                                    @if (item.gender == true)
+                                    {
+                                        <img src="~/FullTemplate/UserTemplate/theme/images/m.png" style="max-width:50px; max-height:50px;" />
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/FullTemplate/UserTemplate/theme/images/wm.png" style="max-width:50px; max-height:50px;" />
+
+                                    }
+                                </td>
+                                <td style="text-align:center; vertical-align:middle; font-size:20px">
+                                    @item.name @item.surname
+                                </td>
+                                <td style="text-align:center; vertical-align:middle; font-size:20px">
+                                    @item.mail
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      
+    </div>
+    <div class="card-footer">
+    </div>
+</div>

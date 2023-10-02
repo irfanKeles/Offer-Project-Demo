@@ -1,0 +1,138 @@
+﻿@using OfferProject.Models.Conctrate
+@model List<Offer>
+
+<div class="modal fade" id="myModal_@ViewBag.id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLongTitle">Offer Detail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @foreach (var item in Model)
+                {
+                    <div class="row p-2">
+                        <div class="col-sm-1">
+                            <span><i class="fa-solid fa-earth-africa"></i></span>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Country</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.Countries.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <span><i class="fa-solid fa-city"></i></span>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>City</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.City.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Mode</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.Mode.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Movement Type</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.MovementType.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-money-check-dollar"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Incoterm</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.Incoterm.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Package Type</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.PackageType.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-maximize"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Unit-1</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.Unit1.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-maximize"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Unit-2</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.Unit2.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Currency</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.Currency.Name
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Date</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @item.offerDate.ToShortDateString()
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa-solid fa-circle-half-stroke"></i>
+                        </div>
+                        <div class="col-sm-5" style="padding-left:0px;">
+                            <strong>Statu</strong>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (item.status == true)
+                            {
+                                <span class="text-success">
+                                    Success
+
+                                    <i class="fa-solid fa-truck-fast"></i>
+
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-warning">
+                                    <b>On Hold</b>
+                                    <i class="fa-solid fa-truck"></i>
+                                </span>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

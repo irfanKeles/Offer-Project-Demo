@@ -1,0 +1,82 @@
+﻿@model OfferProject.Models.Conctrate.Users
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/FullTemplate/user_Login-Register/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/FullTemplate/user_Login-Register/css/style.css">
+</head>
+<body>
+    <div class="row signin-content container" style="justify-content: center; align-items: center;display: flex;">
+        <div class="col-md-6">
+            <img src="~/FullTemplate/user_Login-Register/images/registerphoto.png" style="max-width:400px;" alt="sing up image">
+            <a href="/userLogin/Login" class="signup-image-link">Sing In</a>
+        </div>
+        <div class="col-md-6">
+            <div class="signup-form">
+                <h2 class="form-title">Sing Up</h2>
+                @using (Html.BeginForm("Register", "userLogin", FormMethod.Post))
+                {
+                    <div class="row" style="margin:1rem 0;">
+                        <div class="col-md-12">
+                            @Html.ValidationMessageFor(x => x.name, "", new { @style = "color:red;" })
+
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            @Html.TextBoxFor(x => x.name, new { @placeholder = "Name" })
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin:1rem 0;">
+                        <div class="col-md-12">
+                            @Html.ValidationMessageFor(x => x.surname, "", new { @style = "color:red;" })
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            @Html.TextBoxFor(x => x.surname, new { @placeholder = "Surname" })
+                        </div>
+                    </div>
+                    <div class="row" style="margin:1rem 0;">
+                        <div class="col-md-12">
+                            @Html.ValidationMessageFor(x => x.mail, "", new { @style = "color:red;" })
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label><i class="zmdi zmdi-email"></i></label>
+                            @Html.TextBoxFor(x => x.mail, new { @placeholder = "Mail" })
+                        </div>
+                    </div>
+                    <div class="row" style="margin:1rem 0;">
+                        <div class="col-md-12">
+                            @Html.ValidationMessageFor(x => x.password, "", new { @style = "color:red;" })
+
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label><i class="zmdi zmdi-lock"></i></label>
+                            @Html.TextBoxFor(x => x.password, new { @placeholder = "Password", @type = "password", @id = "loginRegisterpass" })
+                            <span id="loginRegistereye" style="position:relative; top:-18px; cursor:pointer;"><i style="float:right" class=" zmdi zmdi-eye"></i></span>
+                        </div>
+                    </div>
+        
+                    <div class="form-group form-button">
+                        <button type="submit" class="form-submit" style="border:0px">Register</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="~/FullTemplate/UserTemplate/includeScript/MyMain.js"></script>
+</body>
+</html>

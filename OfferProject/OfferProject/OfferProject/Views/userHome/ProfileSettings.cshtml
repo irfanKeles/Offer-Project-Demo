@@ -1,0 +1,176 @@
+﻿@model OfferProject.Models.Conctrate.Users
+@{
+    ViewBag.Title = "ProfileSettings";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="sidenav">
+            <li title="General Operations" class="sidelist parent active">
+                <a href="#">General Operations</a>
+                <ul>
+                    <li class="sidelist">
+                        <span><i class="fa-solid fa-table-list" style="margin:0 1rem 0 0"></i></span>
+                        <a href="/userHome/OfferMade" style="display:inline-flex">Offers Made</a>
+                    </li>
+                    <li class="sidelist">
+                        <span><i class="fa-solid fa-gear" style="margin:0 1rem 0 0"></i></span>
+                        <a href="/userHome/ProfileSettings" style="display:inline-flex">Profile Setting</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- body -->
+    <div class="col-md-8">
+        <div class="container">
+            <div class="main-body">
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    @if (ViewBag.gender == true)
+                                    {
+                                        <img src="~/FullTemplate/UserTemplate/theme/images/m.png" alt="@ViewBag.genderString" class="rounded-circle" width="150">
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/FullTemplate/UserTemplate/theme/images/wm.png" alt="@ViewBag.genderString" class="rounded-circle" width="150">
+                                    }
+                                    <div class="mt-3">
+                                        <h4>@ViewBag.nameSurname </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                @using (Html.BeginForm("ProfileSettings", "userHome", FormMethod.Post))
+                                {
+                                    @Html.HiddenFor(x => x.User_ID)
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            @Html.ValidationMessageFor(x => x.name, "", new { @style = "float:right;  color:red; font-size:12px;" })
+
+                                        </div>
+                                        <div class="col-sm-3 justify-content-between align-items-center d-flex">
+                                            <h6 class="mb-0">Name</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            @Html.TextBoxFor(x => x.name, new { @class = "form-control border-0"})
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            @Html.ValidationMessageFor(x => x.surname, "", new { @style = "float:right;  color:red; font-size:12px;" })
+
+                                        </div>
+                                        <div class="col-sm-3 justify-content-between align-items-center d-flex">
+                                            <h6 class="mb-0">Surname</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            @Html.TextBoxFor(x => x.surname, new { @class = "form-control border-0" })
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            @Html.ValidationMessageFor(x => x.mail, "", new { @style = " color:red;" })
+                                        </div>
+                                        <div class="col-sm-3 justify-content-between align-items-center d-flex">
+                                            <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            @Html.TextBoxFor(x => x.mail, new { @class = "form-control border-0" })
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            @Html.ValidationMessageFor(x => x.password, "", new { @style = " color:red;" })
+                                        </div>
+                                        <div class="col-sm-3 justify-content-between align-items-center d-flex">
+                                            <h6 class="mb-0">Password</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary position-relative d-flex justify-content-end align-items-center">
+                                            @Html.TextBoxFor(x => x.password, new { @class = "form-control border-0 pr-5", @type = "password", @id = "pasInput" })
+                                            <i class="fa-solid fa-eye p-1 position-absolute end-0 " id="pass" style="margin-right:0.6rem; cursor:pointer;"></i>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3 justify-content-between align-items-center d-flex">
+                                            <h6 class="mb-0">Birthday</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary d-flex justify-content-between align-items-center">
+                                            @Html.TextBoxFor(x => x.birtday, "{0:yyyy-MM-dd}", new { @class = "form-control border-0", @type = "date" })
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3 justify-content-between align-items-center d-flex">
+                                            <h6 class="mb-0">Gender</h6>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <div class="row">
+                                                <div class="col-sm-6  justify-content-center align-items-center d-flex">
+                                                    <i class="fa-solid fa-mars p-1 text-info"></i>
+                                                    <span style="margin-top:1px;">Man</span>
+                                                    @Html.RadioButtonFor(x => x.gender, true, new { @class = "fonm-control ", @style = "margin:2px 0 0 4px;" })
+                                                </div>
+                                                <div class="col-sm-6 justify-content-center align-items-center d-flex">
+                                                    <i class="fa-solid fa-venus p-1 text-info"></i>
+                                                    <span style="margin-top:1px;">Women</span>
+                                                    @Html.RadioButtonFor(x => x.gender, false, new { @class = "fonm-control", @style = "margin:2px 0 0 4px;" })
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-info "> <i class="fa-solid fa-user-pen mr-2"></i>Edit</button>
+                                        </div>
+                                    </div>}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let pasInput = document.querySelector("#pasInput");
+    let stat = true;
+    let pasico = document.querySelector("#pass");
+    let pas = document.querySelector("#pass").addEventListener('click', function () {
+        if (stat == true) {
+            pasInput.setAttribute("type", "text");
+            stat = false;
+        }
+        else {
+            pasInput.setAttribute("type", "password");
+            stat = true;
+        }
+    });
+
+</script>

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3">
+        <ul class="sidenav">
+            <li title="General Operations" class="sidelist parent active">
+                <a href="#">General Operations</a>
+                <ul>
+                    <li class="sidelist">
+                        <span><i class="fa-solid fa-table-list" style="margin:0 1rem 0 0"></i></span>
+                        <a href="/userHome/OfferMade" style="display:inline-flex">Offers Made</a>
+                    </li>
+                    <li class="sidelist">
+                        <span><i class="fa-solid fa-gear" style="margin:0 1rem 0 0"></i></span>
+                        <a href="/userHome/ProfileSettings" style="display:inline-flex">Profile Setting</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-8">
+        <div class="px-lg-5 px-4">
+            <h2 class="mb-4 font-weight-medium">General Operations</h2> <!-- main content -->
+            <div class="content">
+                @*<p><img src="images/getting-started.jpg" width="500px" alt="image"></p>*@
+                <p>
+                    Hello. Here I will talk about the menus a little.<br />
+                    <strong>Offers Made:</strong> Here you can check the offers you made and their status.Can edit your bid. You can see how many offers you have sent.<br />
+                    <strong>Profile Setting:</strong> You can review and edit your personal information.
+                </p>
+            </div>
+         
+        </div>
+    </div>
+</div>
+

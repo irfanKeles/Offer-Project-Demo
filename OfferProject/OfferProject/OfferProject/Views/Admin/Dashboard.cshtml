@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@ViewBag.total</h3>
+
+                <p>Total Offer</p>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>@ViewBag.success</h3>
+
+                <p>Success Offer</p>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h3>@ViewBag.pending</h3>
+
+                <p>Pending Offer</p>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-retweet"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3>@ViewBag.delete</h3>
+                <p>Canceled Offer</p>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-trash-can"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- LEFT CONTENT -->
+    <div class="col-lg-7 connectedSortable ui-sortable">
+        @Html.Action("userList", "Admin")
+    </div>
+    <!-- RİGHT CONTENT-->
+    <div class="col-lg-5 connectedSortable ui-sortable">
+        @Html.Action("ModeList", "Admin")
+        @Html.Action("PackageTypeList", "Admin")
+        @Html.Action("MovementTypeList", "Admin")
+        @Html.Action("CityList", "Admin")
+        @Html.Action("Unit2List", "Admin")
+        @Html.Action("CountriyList", "Admin")
+        @Html.Action("IncotermList", "Admin")
+        @Html.Action("CurrencyList", "Admin")
+        @Html.Action("Unit1List", "Admin")
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@using OfferProject.Models.Conctrate
+@model List<Offer>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="callout callout-danger">
+            <h2>Offer Delete List</h2>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="callout callout-danger">
+            <table id="" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Incoterm</th>
+                        <th scope="col">Movement </th>
+                        <th scope="col">Package </th>
+                        <th scope="col">Currency </th>
+                        <th scope="col">Mode</th>
+                        <th scope="col">Unt-1</th>
+                        <th scope="col">Unt-2</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Offer_ID</td>
+                            <td>@item.Users.name @item.Users.surname.Substring(0, 1) ..</td>
+                            <td>@item.Countries.Name</td>
+                            <td>@item.City.Name</td>
+                            <td>@item.Incoterm.Name.Substring(0, 7) ...</td>
+                            <td>@item.MovementType.Name</td>
+                            <td>@item.PackageType.Name</td>
+                            <td>@item.Currency.Name.Substring(0, 4) ...</td>
+                            <td>@item.Mode.Name</td>
+                            <td>@item.Unit1.Name</td>
+                            <td>@item.Unit2.Name</td>
+                            <td>@item.offerDate.ToString("dd.MM.yy")</td>
+                            <td style="text-align:center">
+                                <span style="cursor:pointer;" onclick="onAlert()" ><i class="fa-solid fa-circle-question"></i></span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script>
+    let infos = document.querySelector('#datatable').addEventListener('click', function () {
+
+    });
+</script>

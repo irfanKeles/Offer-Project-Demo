@@ -1,0 +1,24 @@
+﻿@using OfferProject.Models.Conctrate
+@model List<Users>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="row align-items-center">
+    <div class="col-lg-4 text-center d-lg-block d-none">
+        <img src="~/FullTemplate/UserTemplate/theme/images/cta-illustration.jpg" class="img-fluid" alt="">
+    </div>
+    <div class="col-lg-8 text-lg-left text-center">
+        @foreach (var item in Model)
+        {
+            <h2 class="mb-3">Hello, @item.name.</h2>
+
+        }
+        <p>You can instantly make the offer you want to the country you want. <br>By air or by sea, you choose.<br> What are you waiting for to bid? </p>
+        <a href="/userHome/GiveOfferPage" class="btn btn-primary">Give Offer <i class="fa-solid fa-building-circle-arrow-right ml-1"></i></a>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,114 @@
+﻿@model OfferProject.Models.Conctrate.Offer
+@{
+    ViewBag.Title = "GiveOfferPage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-8 text-center text-lg-left">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="p-5 shadow rounded content">
+                    <div class="row" style="border-bottom:1px solid black; margin: 0 0 2rem 0 ">
+                        <div class="col-md-12"><h3>Offer Form</h3></div>
+                        <div class="col-md-12"><p class="mb-4">Send us your offer.</p></div>
+                    </div>
+                    @using (Html.BeginForm("GiveOfferPage", "userHome", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.User_ID)
+                        <div class="form-group">
+                            <label>
+                                <b>Countries</b>
+                                <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="countries"><i class="fa-solid fa-circle-question"></i></span>
+                            </label>
+                            @Html.DropDownListFor(x => x.Countries_ID, (IEnumerable<SelectListItem>)ViewBag.contries, "Select", new { @class = "form-control", @id = "Country" })
+                            @Html.ValidationMessageFor(x => x.Countries_ID, "", new { style = "color:red" })
+
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <b>City</b>
+                                <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="city"><i class="fa-solid fa-circle-question"></i></span>
+                            </label>
+                            @Html.DropDownListFor(x => x.City_ID, (IEnumerable<SelectListItem>)ViewBag.city, "select", new { @class = "form-control", @id = "citydrp" })
+                            @Html.ValidationMessageFor(x => x.City_ID, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>
+                                    <b> Mode</b>
+                                    <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="mode"><i class="fa-solid fa-circle-question"></i></span>
+                                </label>
+                                @Html.DropDownListFor(x => x.Mode_ID, (List<SelectListItem>)ViewBag.mode, "Select", new { @class = "form-control", @id = "DrpMode" })
+                                @Html.ValidationMessageFor(x => x.Mode_ID, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>
+                                    <b>  Movement Type</b>
+                                    <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="movement"><i class="fa-solid fa-circle-question"></i></span>
+                                </label>
+                                @Html.DropDownListFor(x => x.MovementType_ID, (List<SelectListItem>)ViewBag.movementType, "Select", new { @class = "form-control", @id = "DrpMode" })
+                                @Html.ValidationMessageFor(x => x.MovementType_ID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>
+                                    <b>  Incoterm</b>
+                                    <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="incoterm"><i class="fa-solid fa-circle-question"></i></span>
+                                </label>
+                                @Html.DropDownListFor(x => x.Incoterm_ID, (List<SelectListItem>)ViewBag.incoterm, "Select", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Incoterm_ID, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>
+                                    <b>  Package Type</b>
+                                    <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="package"><i class="fa-solid fa-circle-question"></i></span>
+                                </label>
+                                @Html.DropDownListFor(x => x.PackageType_ID, (List<SelectListItem>)ViewBag.packageType, "Select", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.PackageType_ID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>
+                                    <b>  Unit-1</b>
+                                    <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="unit1"><i class="fa-solid fa-circle-question"></i></span>
+                                </label>
+                                @Html.DropDownListFor(x => x.Unit1_ID, (List<SelectListItem>)ViewBag.unit1, "Select", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Unit1_ID, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>
+                                    <b>Unit-2</b>
+                                    <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="unit2"><i class="fa-solid fa-circle-question"></i></span>
+                                </label>
+                                @Html.DropDownListFor(x => x.Unit2_ID, (List<SelectListItem>)ViewBag.unit2, "Select", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Unit2_ID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <b>Currency</b>
+                                <span class="text-dark" style="cursor:pointer; margin:0 0 0 5px" id="currency"><i class="fa-solid fa-circle-question"></i></span>
+                            </label>
+                            @Html.DropDownListFor(x => x.Currency_ID, (List<SelectListItem>)ViewBag.currency, "Select", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Currency_ID, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <button id="giveAdd" class="btn btn-primary">Offer Send <i class="fa-solid fa-truck ml-1"></i></button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 d-lg-block d-none">
+        <img src="~/FullTemplate/UserTemplate/theme/images/banner.jpg" alt="illustration" class="img-fluid">
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="~/FullTemplate/UserTemplate/includeScript/allInfo.js"></script>
+<script src="~/FullTemplate/UserTemplate/includeScript/ajaxDropdown.js"></script>

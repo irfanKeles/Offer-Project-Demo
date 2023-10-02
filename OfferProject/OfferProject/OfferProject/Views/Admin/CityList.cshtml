@@ -1,0 +1,47 @@
+﻿@using OfferProject.Models.Conctrate
+@model List<City>
+
+<div class="card card-warning collapsed-card">
+    <div class="card-header">
+        <h3 class="card-title"><i class="fa-solid fa-city mr-2"></i> CityList</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" style="vertical-align:middle; font-size:20px; text-align:center">Name</th>
+                    <th scope="col" style="vertical-align:middle; font-size:20px; text-align:center">Active / Passive</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="text-align:center; vertical-align:middle; font-size:20px">
+                            @item.Name
+                        </td>
+                        <td style="text-align:center; vertical-align:middle; font-size:20px">
+                            @if (item.status == true)
+                            {
+                                <span> Active</span>
+                            }
+                            else
+                            {
+                                <span>Pasive</span>
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
