@@ -5,12 +5,12 @@
 - Veri tabanaı alt yapısı Code First ile oluşturulmuştur.
 - Proje yapımı 5 gün sürmüştür. 2020 tarihinde yapılmıştır.  
 ---------------------------------------------------------------
-- Kullanıcı Bilgileri:
+### Kullanıcı Bilgileri:
 - 	Mail: i@gmail.com
 - 	Şifre: 1234
 
   
-- Admin Bilgileri:
+### Admin Bilgileri:
 - 	Kullanıcı adı: admin
 - 	Şifre:1234
 ---------------------------------------------------------------
